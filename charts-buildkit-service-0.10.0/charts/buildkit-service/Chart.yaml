@@ -1,0 +1,16 @@
+annotations:
+  artifacthub.io/links: |
+    - name: source
+      url: https://github.com/andrcuns/charts
+    - name: support
+      url: https://github.com/andrcuns/charts/issues
+apiVersion: v2
+appVersion: v0.21.0
+description: Helm chart for buildkit service deployment
+icon: https://raw.githubusercontent.com/andrcuns/buildkit-chart/main/charts/buildkit-service/icon.png
+maintainers:
+- email: andrejs.cunskis@gmail.com
+  name: Andrejs Cunskis
+name: buildkit-service
+type: application
+version: 0.10.0

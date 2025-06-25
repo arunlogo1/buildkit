@@ -1,0 +1,81 @@
+replicaCount: 1
+
+image:
+  # -- Image name
+  repository: moby/buildkit
+  # -- Pull policy
+  pullPolicy: IfNotPresent
+  # -- Image tag
+  tag: ""
+
+# -- Run rootless mode, https://github.com/moby/buildkit/blob/master/docs/rootless.md
+rootless: false
+
+# -- Enable the preStop script for graceful shutdown, https://github.com/seatgeek/buildkit-prestop-script
+preStop: false
+
+# -- Enable debug logging
+debugLog: false
+
+pdb:
+  # -- Minimum available pods
+  minAvailable: 1
+# -- Pod annotations
+podAnnotations: {}
+
+service:
+  # -- Service type
+  type: ClusterIP
+  # -- Service port
+  port: 1234
+  # -- Static ip address for load balancer
+  loadbalancerIp: ""
+  # -- Service annotations
+  annotations: {}
+
+# -- Resource definitions
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Node selector
+nodeSelector: {}
+
+# -- Tolerations
+tolerations: []
+
+# -- Affinity
+affinity: {}
+
+tls:
+  # -- Enable mTLS, refer to https://github.com/moby/buildkit/tree/master/examples/kubernetes#deployment--service
+  enabled: false
+  # -- Base64 encoded cert.pem
+  cert:
+  # -- Base64 encoded key.pem
+  certKey:
+  # -- Base64 encoded ca.pem
+  certCA:
+
+# -- Custom configuration buildkitd.toml
+buildkitdToml: ""
+
+autoscaling:
+  # -- Enable horizontal pod auto-scaler
+  enabled: false
+  # -- Minimum number of replicas
+  minReplicas: 1
+  # -- Maximum number of replicas
+  maxReplicas: 5
+  # -- Target CPU utilization percentage
+  targetCPUUtilizationPercentage: 80
+  # -- Target memory utilization percentage
+  targetMemoryUtilizationPercentage: 80
+
+# -- Lifecycle hooks and termination
+lifecycle: {}
+terminationGracePeriodSeconds: 30
