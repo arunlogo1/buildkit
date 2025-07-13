@@ -22,3 +22,10 @@ Important Commands
 
 
 docker inspect <image-name>
+
+
+# to run the application
+
+
+docker run -p 5000:5000 arunlogo/python-multi-arch:latest
+This will expose the Flask app on http://localhost:5000.

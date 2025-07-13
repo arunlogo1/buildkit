@@ -14,7 +14,7 @@ setup_multi_arch:
 	#docker buildx create --append  --name $(MULTI_ARCH_BUILDER) --driver remote  $(BUILDKTIT_X86_SVC)
 
 multi_arch_build:
-	docker buildx build --builder $(MULTI_ARCH_BUILDER) --platform linux/amd64 .  \
+	docker buildx build --builder $(MULTI_ARCH_BUILDER) --platform linux/arm64,linux/amd64 . \
 	--push \
 	-t $(ARTIFACTORY_DOCKER_PUSH_URL)/$(IMAGE_NAME):$(IMAGE_TAG)
 
